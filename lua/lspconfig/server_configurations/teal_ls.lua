@@ -1,9 +1,15 @@
 local util = require 'lspconfig.util'
 
+local bin_name = 'teal-language-server'
+
+if vim.fn.has 'win32' == 1 then
+  bin_name = bin_name .. '.bat'
+end
+
 return {
   default_config = {
     cmd = {
-      'teal-language-server',
+      bin_name,
       -- use this to enable logging in /tmp/teal-language-server.log
       -- "logging=on",
     },
